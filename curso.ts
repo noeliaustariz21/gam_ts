@@ -98,25 +98,25 @@ let direccion8:Direccion = new Direccion ('Beni', 'Rosa', 'Cotoca');
 console.log(direccion8);
 
 
-let estudiante1 = new Estudiante ('Ana', 'Solis', 'anso@gmail.com', [direccion1]);
+let estudiante1:Estudiante = new Estudiante ('Ana', 'Solis', 'anso@gmail.com', [direccion1]);
 console.log(estudiante1);
-let estudiante2 = new Estudiante ('Pedro', 'Suarez', 'pesu@gmail.com', [direccion2]);
+let estudiante2:Estudiante = new Estudiante ('Pedro', 'Suarez', 'pesu@gmail.com', [direccion2]);
 console.log(estudiante2);
-let estudiante3 = new Estudiante ('Jorge', 'Fernandes', 'jofe@gmail.com', [direccion3]);
+let estudiante3:Estudiante = new Estudiante ('Jorge', 'Fernandes', 'jofe@gmail.com', [direccion3]);
 console.log(estudiante3);
-let estudiante4 = new Estudiante ('Karina', 'Mendez', 'kame@gmail.com', [direccion4]);
+let estudiante4:Estudiante = new Estudiante ('Karina', 'Mendez', 'kame@gmail.com', [direccion4]);
 console.log(estudiante4);
-let estudiante5 = new Estudiante ('Valentina', 'Perez', 'vape@gmail.com', [direccion5]);
+let estudiante5:Estudiante = new Estudiante ('Valentina', 'Perez', 'vape@gmail.com', [direccion5]);
 console.log(estudiante5);
-let estudiante6 = new Estudiante ('Carlos', 'Martines', 'carma@gmail.com', [direccion7]);
+let estudiante6:Estudiante = new Estudiante ('Carlos', 'Martines', 'carma@gmail.com', [direccion7]);
 console.log(estudiante6);
-let estudiante7 = new Estudiante ('Martin', 'Alvarado', 'mava@gmail.com', [direccion8]);
+let estudiante7:Estudiante = new Estudiante ('Martin', 'Alvarado', 'mava@gmail.com', [direccion8]);
 console.log(estudiante7);
-let estudiante8 = new Estudiante ('Susana', 'Cuenca', 'susy@gmail.com', [direccion1]);
+let estudiante8:Estudiante = new Estudiante ('Susana', 'Cuenca', 'susy@gmail.com', [direccion1]);
 console.log(estudiante8);
-let estudiante9 = new Estudiante ('Brenda', 'Chavez', 'bren@gmail.com', [direccion2]);
+let estudiante9:Estudiante = new Estudiante ('Brenda', 'Chavez', 'bren@gmail.com', [direccion2]);
 console.log(estudiante9);
-let estudiante10 = new Estudiante ('Martha', 'Gutierrez', 'magus@gmail.com', [direccion3]);
+let estudiante10:Estudiante = new Estudiante ('Martha', 'Gutierrez', 'magus@gmail.com', [direccion3]);
 console.log(estudiante10);
 
 
