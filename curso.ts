@@ -22,6 +22,9 @@ export class Curso {
        this.precio = pr;
        this.docente = d;
     }
+    public getPrecio():number{
+        return this.precio;
+    }
 }
 
 export class Docente{
@@ -38,7 +41,12 @@ export class Docente{
        this.profesion = pro;
        this.direccion = di;
    }
-}
+   public newDireccion(di:Direccion): void {
+    this.direccion.push (di);
+     }
+
+   }
+
 
 export class Estudiante {
     private nombre: string;
@@ -52,6 +60,10 @@ export class Estudiante {
        this.correo = co;
        this.direccion = di;
    }
+   public newDireccion(di:Direccion): void {
+    this.direccion.push (di);
+     }
+
 }
 
 export class Direccion  {
@@ -77,6 +89,39 @@ export class CompraCurso {
        this.fecha = fe;
        
    }
+   public getCurso():Curso{
+       return this.curso;
+   }
+}
+export class PlataformaEducativa {
+    private nombre: string;
+    private regitro: CompraCurso[];
+
+    public constructor(nom:string , reg: CompraCurso[]){
+        this.nombre = nom;
+        this.regitro = reg;
+    }
+
+    public ventaCurso(curso:CompraCurso): void {
+        this.regitro.push(curso);
+    }
+
+    public totalIngresos():number {
+        let acumulado : number = 0;
+        let compracurso : CompraCurso;
+        let curso : Curso;
+        let precio: number;
+        for (let i:number = 0 ; i<this.regitro.length ; i++){
+            compracurso = this.regitro[i];
+            curso = compracurso.getCurso();
+            precio = curso.getPrecio();
+            acumulado = acumulado + precio;
+             //acumulado=acumulado+this.regitro[i].getCurso().getPrecio();
+        
+        }
+    return acumulado;
+    }
+        
 }
 
 
@@ -164,6 +209,20 @@ console.log(compracurso11);
 let compracurso12:CompraCurso = new CompraCurso (curso2,estudiante2, 'veinticinco de Septiembre');
 console.log(compracurso12);
 
+console.log(estudiante1);
+estudiante1.newDireccion(direccion8);
+console.log(estudiante1);
+
+console.log(docente1);
+docente1.newDireccion(direccion1);
+console.log(docente1);
+
+let plataformaesduactiva1:PlataformaEducativa = new PlataformaEducativa('Edu.com',[compracurso1]);
+console.log(plataformaesduactiva1);
+plataformaesduactiva1.ventaCurso(compracurso2);
+console.log(plataformaesduactiva1);
+let suma: number = plataformaesduactiva1.totalIngresos();
+console.log(suma);
 
 
 

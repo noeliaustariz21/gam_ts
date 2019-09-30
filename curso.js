@@ -18,6 +18,9 @@ var Curso = /** @class */ (function () {
         this.precio = pr;
         this.docente = d;
     }
+    Curso.prototype.getPrecio = function () {
+        return this.precio;
+    };
     return Curso;
 }());
 exports.Curso = Curso;
@@ -29,6 +32,9 @@ var Docente = /** @class */ (function () {
         this.profesion = pro;
         this.direccion = di;
     }
+    Docente.prototype.newDireccion = function (di) {
+        this.direccion.push(di);
+    };
     return Docente;
 }());
 exports.Docente = Docente;
@@ -39,6 +45,9 @@ var Estudiante = /** @class */ (function () {
         this.correo = co;
         this.direccion = di;
     }
+    Estudiante.prototype.newDireccion = function (di) {
+        this.direccion.push(di);
+    };
     return Estudiante;
 }());
 exports.Estudiante = Estudiante;
@@ -57,9 +66,37 @@ var CompraCurso = /** @class */ (function () {
         this.estudiante = es;
         this.fecha = fe;
     }
+    CompraCurso.prototype.getCurso = function () {
+        return this.curso;
+    };
     return CompraCurso;
 }());
 exports.CompraCurso = CompraCurso;
+var PlataformaEducativa = /** @class */ (function () {
+    function PlataformaEducativa(nom, reg) {
+        this.nombre = nom;
+        this.regitro = reg;
+    }
+    PlataformaEducativa.prototype.ventaCurso = function (curso) {
+        this.regitro.push(curso);
+    };
+    PlataformaEducativa.prototype.totalIngresos = function () {
+        var acumulado = 0;
+        var compracurso;
+        var curso;
+        var precio;
+        for (var i = 0; i < this.regitro.length; i++) {
+            compracurso = this.regitro[i];
+            curso = compracurso.getCurso();
+            precio = curso.getPrecio();
+            acumulado = acumulado + precio;
+            //acumulado=acumulado+this.regitro[i].getCurso().getPrecio();
+        }
+        return acumulado;
+    };
+    return PlataformaEducativa;
+}());
+exports.PlataformaEducativa = PlataformaEducativa;
 var direccion1 = new Direccion('Cochabamba', 'Don Bosco', 'Vera Cruz');
 console.log(direccion1);
 var direccion2 = new Direccion('Cochabamba', 'Junin', 'San Pedro');
@@ -134,3 +171,15 @@ var compracurso11 = new CompraCurso(curso1, estudiante1, 'veinticinco de Septiem
 console.log(compracurso11);
 var compracurso12 = new CompraCurso(curso2, estudiante2, 'veinticinco de Septiembre');
 console.log(compracurso12);
+console.log(estudiante1);
+estudiante1.newDireccion(direccion8);
+console.log(estudiante1);
+console.log(docente1);
+docente1.newDireccion(direccion1);
+console.log(docente1);
+var plataformaesduactiva1 = new PlataformaEducativa('Edu.com', [compracurso1]);
+console.log(plataformaesduactiva1);
+plataformaesduactiva1.ventaCurso(compracurso2);
+console.log(plataformaesduactiva1);
+var suma = plataformaesduactiva1.totalIngresos();
+console.log(suma);
